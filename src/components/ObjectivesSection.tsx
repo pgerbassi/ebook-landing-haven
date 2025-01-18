@@ -4,23 +4,23 @@ import { Card, CardContent } from "./ui/card";
 const objectives = [
   {
     icon: Globe,
-    title: "Master Multiple Languages",
-    description: "Break language barriers and communicate confidently in various languages, opening doors to new cultures and opportunities.",
+    title: "Domine Múltiplos Idiomas",
+    description: "Quebre barreiras linguísticas e comunique-se com confiança em vários idiomas, abrindo portas para novas culturas e oportunidades.",
   },
   {
     icon: Brain,
-    title: "Accelerated Learning",
-    description: "Learn languages up to 3x faster with our proven polyglot methodology and cognitive enhancement techniques.",
+    title: "Aprendizado Acelerado",
+    description: "Aprenda idiomas até 3x mais rápido com nossa metodologia poliglota comprovada e técnicas de aprimoramento cognitivo.",
   },
   {
     icon: Target,
-    title: "Career Growth",
-    description: "Boost your professional value and access international job markets with multilingual proficiency.",
+    title: "Crescimento Profissional",
+    description: "Aumente seu valor profissional e acesse mercados de trabalho internacionais com proficiência em múltiplos idiomas.",
   },
   {
     icon: Rocket,
-    title: "Personal Achievement",
-    description: "Experience the satisfaction of mastering multiple languages and joining the elite group of global polyglots.",
+    title: "Realização Pessoal",
+    description: "Experimente a satisfação de dominar vários idiomas e juntar-se ao grupo de elite de poliglotas globais.",
   },
 ];
 
@@ -30,10 +30,10 @@ export const ObjectivesSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-purple-900">
-            Transform Your Life as a Polyglot
+            Transforme Sua Vida como Poliglota
           </h2>
           <p className="text-lg text-gray-600">
-            Unlock your full potential and achieve your language learning goals with our comprehensive system
+            Desbloqueie todo seu potencial e alcance seus objetivos de aprendizado de idiomas com nosso sistema completo
           </p>
         </div>
         
@@ -61,20 +61,20 @@ export const ObjectivesSection = () => {
 
         <div className="mt-12 text-center">
           <p className="text-lg font-medium text-primary mb-6">
-            Join thousands of successful language learners who have achieved their polyglot dreams
+            Junte-se a milhares de estudantes de idiomas bem-sucedidos que alcançaram seus sonhos poliglotas
           </p>
           <div className="inline-flex items-center gap-8 text-gray-600">
             <div>
               <div className="text-3xl font-bold text-primary mb-1">10k+</div>
-              <div className="text-sm">Active Learners</div>
+              <div className="text-sm">Alunos Ativos</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-primary mb-1">95%</div>
-              <div className="text-sm">Success Rate</div>
+              <div className="text-sm">Taxa de Sucesso</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-primary mb-1">4.9/5</div>
-              <div className="text-sm">Student Rating</div>
+              <div className="text-sm">Avaliação dos Alunos</div>
             </div>
           </div>
         </div>

@@ -4,20 +4,20 @@ import { Star } from "lucide-react";
 const testimonials = [
   {
     name: "Sarah Johnson",
-    role: "Language Learner",
-    content: "This method completely transformed how I approach language learning. I've made more progress in 3 months than in years of traditional study.",
+    role: "Estudante de Idiomas",
+    content: "Este método transformou completamente minha forma de aprender idiomas. Progredi mais em 3 meses do que em anos de estudo tradicional.",
     rating: 5,
   },
   {
     name: "Michael Chen",
-    role: "Business Professional",
-    content: "The structured approach and clear methodology made it easy to stay consistent with my learning, even with a busy schedule.",
+    role: "Profissional de Negócios",
+    content: "A abordagem estruturada e metodologia clara tornaram fácil manter a consistência no aprendizado, mesmo com uma agenda lotada.",
     rating: 5,
   },
   {
     name: "Ana García",
-    role: "Student",
-    content: "I was skeptical at first, but the results speak for themselves. This is truly a game-changer for language learning.",
+    role: "Estudante",
+    content: "Estava cética no início, mas os resultados falam por si. Isso é realmente revolucionário para o aprendizado de idiomas.",
     rating: 5,
   },
 ];
@@ -27,7 +27,7 @@ export const TestimonialsSection = () => {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          What Our Students Say
+          O Que Nossos Alunos Dizem
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial) => (

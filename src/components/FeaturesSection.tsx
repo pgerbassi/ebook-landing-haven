@@ -3,23 +3,23 @@ import { BookOpen, Brain, Clock, Target } from "lucide-react";
 const features = [
   {
     icon: Brain,
-    title: "Scientific Approach",
-    description: "Based on proven cognitive science and learning methodologies",
+    title: "Abordagem Científica",
+    description: "Baseado em ciência cognitiva e metodologias de aprendizado comprovadas",
   },
   {
     icon: Clock,
-    title: "Time Efficient",
-    description: "Learn faster with our structured learning path",
+    title: "Eficiência de Tempo",
+    description: "Aprenda mais rápido com nosso caminho de aprendizado estruturado",
   },
   {
     icon: Target,
-    title: "Goal Oriented",
-    description: "Clear milestones and progress tracking",
+    title: "Orientado a Objetivos",
+    description: "Marcos claros e acompanhamento de progresso",
   },
   {
     icon: BookOpen,
-    title: "Comprehensive Content",
-    description: "Everything you need in one place",
+    title: "Conteúdo Completo",
+    description: "Tudo que você precisa em um só lugar",
   },
 ];
 
@@ -28,7 +28,7 @@ export const FeaturesSection = () => {
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          Why Choose Our Method?
+          Por Que Escolher Nosso Método?
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature) => (

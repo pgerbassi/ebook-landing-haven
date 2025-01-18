@@ -9,20 +9,20 @@ export const HeroSection = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           <div className="lg:w-1/2 text-white">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Master Any Language with Our Revolutionary Method
+              Domine Qualquer Idioma com Nosso Método Revolucionário
             </h1>
             <p className="text-xl mb-8 text-purple-100">
-              Unlock your potential to learn any language efficiently and effectively with our proven system.
+              Desbloqueie seu potencial para aprender qualquer idioma de forma eficiente e eficaz com nosso sistema comprovado.
             </p>
             <Button size="lg" className="bg-white text-purple-800 hover:bg-purple-100">
-              Get Started Now <ArrowRight className="ml-2 h-5 w-5" />
+              Comece Agora <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
           <div className="lg:w-1/2">
             <div className="relative animate-float">
               <img
                 src="/placeholder.svg"
-                alt="Ebook Preview"
+                alt="Prévia do Ebook"
                 className="rounded-lg shadow-2xl"
               />
             </div>
