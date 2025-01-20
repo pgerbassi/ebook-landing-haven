@@ -27,6 +27,23 @@ export const ContentForm = ({ section, fields }: ContentFormProps) => {
   const { data, isLoading } = useQuery({
     queryKey: [section],
     queryFn: async () => {
+      // For testimonials, we want to get all rows
+      if (section === "testimonials_content") {
+        const { data, error } = await supabase
+          .from(section)
+          .select("*")
+          .order('created_at');
+        
+        if (error) throw error;
+        // For testimonials, we'll use the first item's data to populate the form
+        if (data && data.length > 0) {
+          setFormData(data[0]);
+          return data;
+        }
+        return null;
+      }
+
+      // For other content types, we still use single()
       const { data, error } = await supabase
         .from(section)
         .select("*")
@@ -40,12 +57,23 @@ export const ContentForm = ({ section, fields }: ContentFormProps) => {
 
   const { mutate, isPending } = useMutation({
     mutationFn: async (newData: typeof formData) => {
-      const { error } = await supabase
-        .from(section)
-        .update(newData)
-        .eq('id', data.id);
-      
-      if (error) throw error;
+      if (section === "testimonials_content") {
+        // For testimonials, we update the specific record
+        const { error } = await supabase
+          .from(section)
+          .update(newData)
+          .eq('id', formData.id);
+        
+        if (error) throw error;
+      } else {
+        // For other content types, update as before
+        const { error } = await supabase
+          .from(section)
+          .update(newData)
+          .eq('id', data.id);
+        
+        if (error) throw error;
+      }
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [section] });
