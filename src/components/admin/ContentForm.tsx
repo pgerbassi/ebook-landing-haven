@@ -27,15 +27,15 @@ export const ContentForm = ({ section, fields }: ContentFormProps) => {
   const { data, isLoading } = useQuery({
     queryKey: [section],
     queryFn: async () => {
-      // For testimonials, we want to get all rows
-      if (section === "testimonials_content") {
+      // For testimonials and faq, we want to get all rows
+      if (section === "testimonials_content" || section === "faq_content") {
         const { data, error } = await supabase
           .from(section)
           .select("*")
           .order('created_at');
         
         if (error) throw error;
-        // For testimonials, we'll use the first item's data to populate the form
+        // Use the first item's data to populate the form
         if (data && data.length > 0) {
           setFormData(data[0]);
           return data;
@@ -57,8 +57,8 @@ export const ContentForm = ({ section, fields }: ContentFormProps) => {
 
   const { mutate, isPending } = useMutation({
     mutationFn: async (newData: typeof formData) => {
-      if (section === "testimonials_content") {
-        // For testimonials, we update the specific record
+      if (section === "testimonials_content" || section === "faq_content") {
+        // For testimonials and faq, we update the specific record
         const { error } = await supabase
           .from(section)
           .update(newData)
@@ -70,7 +70,7 @@ export const ContentForm = ({ section, fields }: ContentFormProps) => {
         const { error } = await supabase
           .from(section)
           .update(newData)
-          .eq('id', data.id);
+          .eq('id', (data as any).id);
         
         if (error) throw error;
       }
