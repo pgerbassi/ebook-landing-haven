@@ -1,14 +1,10 @@
 import { BookOpen, Brain, Clock, Target } from "lucide-react";
+import { Database } from "@/integrations/supabase/types";
 
-interface Feature {
-  title: string;
-  description: string;
-  icon_name: string;
-  display_order: number;
-}
+type Feature = Database['public']['Tables']['features_content']['Row'];
 
 interface FeaturesSectionProps {
-  features: Feature[];
+  features: Feature[] | null;
 }
 
 const iconMap = {
@@ -19,6 +15,10 @@ const iconMap = {
 };
 
 export const FeaturesSection = ({ features }: FeaturesSectionProps) => {
+  if (!features || features.length === 0) {
+    return null;
+  }
+
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -30,7 +30,7 @@ export const FeaturesSection = ({ features }: FeaturesSectionProps) => {
             const Icon = iconMap[feature.icon_name as keyof typeof iconMap];
             return (
               <div
-                key={feature.title}
+                key={feature.id}
                 className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slideUp"
                 style={{ animationDelay: `${index * 100}ms` }}
               >

@@ -49,7 +49,7 @@ const Index = () => {
 
       return {
         ...data,
-        stats: data.stats // Now TypeScript knows this has the correct shape
+        stats: data.stats
       };
     },
   });
