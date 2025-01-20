@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { LogOut } from "lucide-react";
+import { ContentTabs } from "@/components/admin/ContentTabs";
 
 export const Admin = () => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const checkUser = async () => {
@@ -14,7 +14,6 @@ export const Admin = () => {
       if (!session) {
         navigate("/login");
       }
-      setLoading(false);
     };
 
     checkUser();
@@ -34,14 +33,6 @@ export const Admin = () => {
     await supabase.auth.signOut();
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-gray-50">
       <nav className="bg-white shadow-sm">
@@ -59,13 +50,8 @@ export const Admin = () => {
           </div>
         </div>
       </nav>
-      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <div className="px-4 py-6 sm:px-0">
-          <h2 className="text-2xl font-bold mb-4">Content Management</h2>
-          <p className="text-gray-600">
-            Welcome to the admin dashboard. Here you'll be able to manage all your landing page content.
-          </p>
-        </div>
+      <main className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <ContentTabs />
       </main>
     </div>
   );
