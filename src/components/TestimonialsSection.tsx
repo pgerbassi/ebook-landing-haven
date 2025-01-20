@@ -1,28 +1,18 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
 
-const testimonials = [
-  {
-    name: "Sarah Johnson",
-    role: "Estudante de Idiomas",
-    content: "Este método transformou completamente minha forma de aprender idiomas. Progredi mais em 3 meses do que em anos de estudo tradicional.",
-    rating: 5,
-  },
-  {
-    name: "Michael Chen",
-    role: "Profissional de Negócios",
-    content: "A abordagem estruturada e metodologia clara tornaram fácil manter a consistência no aprendizado, mesmo com uma agenda lotada.",
-    rating: 5,
-  },
-  {
-    name: "Ana García",
-    role: "Estudante",
-    content: "Estava cética no início, mas os resultados falam por si. Isso é realmente revolucionário para o aprendizado de idiomas.",
-    rating: 5,
-  },
-];
+interface Testimonial {
+  name: string;
+  role: string;
+  content: string;
+  rating: number;
+}
 
-export const TestimonialsSection = () => {
+interface TestimonialsSectionProps {
+  testimonials: Testimonial[];
+}
+
+export const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">

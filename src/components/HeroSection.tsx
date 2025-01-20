@@ -1,7 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
-export const HeroSection = () => {
+interface HeroContent {
+  title: string;
+  subtitle: string;
+  button_text: string;
+}
+
+interface HeroSectionProps {
+  content: HeroContent;
+}
+
+export const HeroSection = ({ content }: HeroSectionProps) => {
   return (
     <div className="relative min-h-[80vh] flex items-center">
       <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-400 opacity-90" />
@@ -9,16 +19,16 @@ export const HeroSection = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           <div className="lg:w-1/2 text-white">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-slideUp">
-              Domine Qualquer Idioma com Nosso Método Revolucionário
+              {content.title}
             </h1>
             <p className="text-xl mb-8 text-orange-100 animate-slideUp [animation-delay:200ms]">
-              Desbloqueie seu potencial para aprender qualquer idioma de forma eficiente e eficaz com nosso sistema comprovado.
+              {content.subtitle}
             </p>
             <Button 
               size="lg" 
               className="bg-white text-orange-600 hover:bg-orange-100 hover:scale-105 transform transition-all duration-300 bg-gradient-to-r from-white via-orange-100 to-white bg-[length:400%_100%] animate-shine"
             >
-              Comece Agora <ArrowRight className="ml-2 h-5 w-5" />
+              {content.button_text} <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
           <div className="lg:w-1/2">
