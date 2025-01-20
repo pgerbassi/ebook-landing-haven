@@ -57,7 +57,16 @@ const Index = () => {
   const { data: featuresContent } = useQuery({
     queryKey: ['features_content'],
     queryFn: async () => {
-      const { data } = await supabase.from('features_content').select('*').order('display_order');
+      const { data, error } = await supabase
+        .from('features_content')
+        .select('*')
+        .order('display_order');
+      
+      if (error) {
+        console.error('Error fetching features:', error);
+        return null;
+      }
+      
       return data;
     },
   });
