@@ -8,8 +8,10 @@ import { Loader2 } from "lucide-react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 
+type TableNames = "about_content" | "faq_content" | "features_content" | "hero_content" | "pricing_content" | "testimonials_content";
+
 interface ContentFormProps {
-  section: string;
+  section: TableNames;
   fields: {
     name: string;
     type: "text" | "textarea" | "json" | "array";

@@ -1,7 +1,17 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ContentForm } from "./ContentForm";
 
-const contentSections = [
+type ContentSection = {
+  id: "hero_content" | "about_content" | "features_content" | "pricing_content" | "testimonials_content" | "faq_content";
+  label: string;
+  fields: {
+    name: string;
+    type: "text" | "textarea" | "json" | "array";
+    label: string;
+  }[];
+};
+
+const contentSections: ContentSection[] = [
   {
     id: "hero_content",
     label: "Hero Section",
@@ -60,7 +70,7 @@ const contentSections = [
       { name: "display_order", type: "text", label: "Display Order" },
     ],
   },
-] as const;
+];
 
 export const ContentTabs = () => {
   return (
