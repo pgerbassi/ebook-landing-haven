@@ -7,6 +7,24 @@ import { ObjectivesSection } from "@/components/ObjectivesSection";
 import { AboutSection } from "@/components/AboutSection";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import { Json } from "@/integrations/supabase/types";
+
+// Add type guard to ensure stats has the correct shape
+const isValidStats = (stats: Json): stats is {
+  students: string;
+  languages: string;
+  method: string;
+  recognition: string;
+} => {
+  if (typeof stats !== 'object' || stats === null) return false;
+  const s = stats as Record<string, unknown>;
+  return (
+    typeof s.students === 'string' &&
+    typeof s.languages === 'string' &&
+    typeof s.method === 'string' &&
+    typeof s.recognition === 'string'
+  );
+};
 
 const Index = () => {
   const { data: heroContent } = useQuery({
@@ -21,7 +39,18 @@ const Index = () => {
     queryKey: ['about_content'],
     queryFn: async () => {
       const { data } = await supabase.from('about_content').select('*').single();
-      return data;
+      if (!data) return null;
+      
+      // Validate stats shape
+      if (!isValidStats(data.stats)) {
+        console.error('Invalid stats shape in about content:', data.stats);
+        return null;
+      }
+
+      return {
+        ...data,
+        stats: data.stats // Now TypeScript knows this has the correct shape
+      };
     },
   });
 
