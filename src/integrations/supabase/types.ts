@@ -96,6 +96,30 @@ export type Database = {
         }
         Relationships: []
       }
+      global_settings: {
+        Row: {
+          created_at: string
+          font_family: string
+          font_url: string
+          id: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          font_family?: string
+          font_url?: string
+          id?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          font_family?: string
+          font_url?: string
+          id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       hero_content: {
         Row: {
           button_text: string
