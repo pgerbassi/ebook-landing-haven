@@ -12,6 +12,10 @@ interface HeroSectionProps {
 }
 
 export const HeroSection = ({ content }: HeroSectionProps) => {
+  // Convert YouTube URL to embed URL
+  const videoId = "YsC4J0c9PmA";
+  const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+
   return (
     <div className="relative min-h-[80vh] flex items-center">
       <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-400 opacity-90" />
@@ -32,11 +36,13 @@ export const HeroSection = ({ content }: HeroSectionProps) => {
             </Button>
           </div>
           <div className="lg:w-1/2">
-            <div className="relative animate-float">
-              <img
-                src="/placeholder.svg"
-                alt="Prévia do Ebook"
-                className="rounded-lg shadow-2xl"
+            <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-2xl animate-float">
+              <iframe
+                src={embedUrl}
+                title="YouTube video"
+                className="absolute inset-0 w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
               />
             </div>
           </div>
