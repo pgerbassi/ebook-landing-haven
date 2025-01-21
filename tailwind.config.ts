@@ -19,7 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        jersey: ['Jersey 15', 'sans-serif'],
+        jersey: ["'Jersey 15'", 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
