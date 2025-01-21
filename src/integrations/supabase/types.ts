@@ -103,6 +103,8 @@ export type Database = {
           id: string
           subtitle: string
           title: string
+          title_e: string | null
+          title_m: string | null
           updated_at: string
         }
         Insert: {
@@ -111,6 +113,8 @@ export type Database = {
           id?: string
           subtitle: string
           title: string
+          title_e?: string | null
+          title_m?: string | null
           updated_at?: string
         }
         Update: {
@@ -119,6 +123,8 @@ export type Database = {
           id?: string
           subtitle?: string
           title?: string
+          title_e?: string | null
+          title_m?: string | null
           updated_at?: string
         }
         Relationships: []
