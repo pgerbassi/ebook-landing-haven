@@ -14,6 +14,8 @@ interface PricingSectionProps {
 }
 
 export const PricingSection = ({ content }: PricingSectionProps) => {
+  const paymentLink = "https://pay.hotmart.com/D96966130K?bid=1735330800536";
+
   return (
     <section className="py-20 bg-gradient-to-b from-orange-50 to-white">
       <div className="container mx-auto px-4">
@@ -35,12 +37,18 @@ export const PricingSection = ({ content }: PricingSectionProps) => {
                   </li>
                 ))}
               </ul>
-              <Button 
-                className="w-full text-lg py-6 bg-orange-500 hover:bg-orange-600 transform hover:scale-105 transition-all duration-300 bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 bg-[length:400%_100%] animate-shine" 
-                size="lg"
+              <a 
+                href={paymentLink}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {content.button_text}
-              </Button>
+                <Button 
+                  className="w-full text-lg py-6 bg-orange-500 hover:bg-orange-600 transform hover:scale-105 transition-all duration-300 bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 bg-[length:400%_100%] animate-shine" 
+                  size="lg"
+                >
+                  {content.button_text}
+                </Button>
+              </a>
             </CardContent>
           </Card>
         </div>

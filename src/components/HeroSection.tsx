@@ -17,6 +17,7 @@ export const HeroSection = ({ content }: HeroSectionProps) => {
   const isMobile = useIsMobile();
   const videoId = "YsC4J0c9PmA";
   const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+  const paymentLink = "https://pay.hotmart.com/D96966130K?bid=1735330800536";
 
   return (
     <div className="relative min-h-[80vh] flex items-center">
@@ -37,12 +38,18 @@ export const HeroSection = ({ content }: HeroSectionProps) => {
             <p className="text-xl mb-8 text-orange-100 animate-slideUp [animation-delay:200ms]">
               {content.subtitle}
             </p>
-            <Button 
-              size="lg" 
-              className="bg-white text-orange-600 hover:bg-orange-100 hover:scale-105 transform transition-all duration-300 bg-gradient-to-r from-white via-orange-100 to-white bg-[length:400%_100%] animate-shine"
+            <a 
+              href={paymentLink}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              {content.button_text} <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+              <Button 
+                size="lg" 
+                className="bg-white text-orange-600 hover:bg-orange-100 hover:scale-105 transform transition-all duration-300 bg-gradient-to-r from-white via-orange-100 to-white bg-[length:400%_100%] animate-shine"
+              >
+                {content.button_text} <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </a>
           </div>
           <div className={`${isMobile ? 'w-screen -mx-4' : 'lg:w-1/2'}`}>
             <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-2xl animate-float">
