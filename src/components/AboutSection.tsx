@@ -58,13 +58,12 @@ export const AboutSection = ({ content }: AboutSectionProps) => {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <p className="text-xl font-medium text-gray-900 mb-4">
-                    {content.quote}
-                  </p>
-                  <p className="text-primary font-semibold">- Victor</p>
-                </div>
+              <div className="aspect-square rounded-2xl overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1519389950473" 
+                  alt="Our Team"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
