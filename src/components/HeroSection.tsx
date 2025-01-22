@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useState, useEffect } from "react";
 
 interface HeroContent {
   title: string;
@@ -16,8 +17,15 @@ interface HeroSectionProps {
 export const HeroSection = ({ content }: HeroSectionProps) => {
   const isMobile = useIsMobile();
   const videoId = "YsC4J0c9PmA";
-  const embedUrl = `https://www.youtube.com/embed/${videoId}`;
   const paymentLink = "https://pay.hotmart.com/D96966130K?bid=1735330800536";
+  const [cookiesAccepted, setCookiesAccepted] = useState(false);
+
+  useEffect(() => {
+    const consent = localStorage.getItem('youtube-cookie-consent');
+    setCookiesAccepted(consent === 'accepted');
+  }, []);
+
+  const embedUrl = `https://www.youtube.com/embed/${videoId}${cookiesAccepted ? '' : '?nocookie=true'}`;
 
   return (
     <div className="relative min-h-[80vh] flex items-center">
@@ -53,10 +61,17 @@ export const HeroSection = ({ content }: HeroSectionProps) => {
           </div>
           <div className={`${isMobile ? 'w-screen -mx-4' : 'lg:w-1/2'}`}>
             <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-2xl animate-float">
+              {!cookiesAccepted && (
+                <div className="absolute inset-0 bg-gray-100 flex items-center justify-center text-center p-4">
+                  <p className="text-gray-600">
+                    Por favor, aceite os cookies do YouTube para visualizar o vídeo.
+                  </p>
+                </div>
+              )}
               <iframe
                 src={embedUrl}
                 title="YouTube video"
-                className="absolute inset-0 w-full h-full"
+                className={`absolute inset-0 w-full h-full ${!cookiesAccepted ? 'opacity-0' : ''}`}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />

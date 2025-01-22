@@ -5,6 +5,7 @@ import { PricingSection } from "@/components/PricingSection";
 import { FAQSection } from "@/components/FAQSection";
 import { ObjectivesSection } from "@/components/ObjectivesSection";
 import { AboutSection } from "@/components/AboutSection";
+import { CookieConsent } from "@/components/CookieConsent";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Json } from "@/integrations/supabase/types";
@@ -104,6 +105,7 @@ const Index = () => {
       {testimonialsContent && <TestimonialsSection testimonials={testimonialsContent} />}
       {pricingContent && <PricingSection content={pricingContent} />}
       {faqContent && <FAQSection faqs={faqContent} />}
+      <CookieConsent />
     </div>
   );
 };
