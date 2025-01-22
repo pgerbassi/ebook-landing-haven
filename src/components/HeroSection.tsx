@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface HeroContent {
   title: string;
   subtitle: string;
   button_text: string;
+  background_image_url: string;
 }
 
 interface HeroSectionProps {
@@ -12,13 +14,20 @@ interface HeroSectionProps {
 }
 
 export const HeroSection = ({ content }: HeroSectionProps) => {
-  // Convert YouTube URL to embed URL
+  const isMobile = useIsMobile();
   const videoId = "YsC4J0c9PmA";
   const embedUrl = `https://www.youtube.com/embed/${videoId}`;
 
   return (
     <div className="relative min-h-[80vh] flex items-center">
-      <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-400 opacity-90" />
+      <div 
+        className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-400 opacity-90"
+        style={{
+          backgroundImage: `url(${content.background_image_url})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           <div className="lg:w-1/2 text-white">
@@ -35,7 +44,7 @@ export const HeroSection = ({ content }: HeroSectionProps) => {
               {content.button_text} <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
-          <div className="lg:w-1/2">
+          <div className={`${isMobile ? 'w-screen -mx-4' : 'lg:w-1/2'}`}>
             <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-2xl animate-float">
               <iframe
                 src={embedUrl}

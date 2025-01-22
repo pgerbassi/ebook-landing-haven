@@ -122,6 +122,7 @@ export type Database = {
       }
       hero_content: {
         Row: {
+          background_image_url: string
           button_text: string
           created_at: string
           id: string
@@ -132,6 +133,7 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          background_image_url?: string
           button_text: string
           created_at?: string
           id?: string
@@ -142,6 +144,7 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          background_image_url?: string
           button_text?: string
           created_at?: string
           id?: string
